@@ -1,3 +1,18 @@
+1. proxy to the backend server has to be configured in package.json.
+   ==> http://localhost:5500
+2. We need axios to communicate with the server
+   1. $ npm i axios
+3. We should use hooks from react to update the data.
+   1. useState
+   2. useEffect
+      1. useEffect(fun, []);
+         1. [], it will execute only once.
+         2. [property], it will execute on everychange of this 'property'
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

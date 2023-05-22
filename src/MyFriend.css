@@ -1,0 +1,51 @@
+.container {
+ 
+  margin-left: 40px;
+
+  text-decoration: solid;
+  text-size-adjust: 70px;
+
+}
+
+.border {
+  border-collapse: collapse;
+  height: 200px;
+  width: 500px;
+  padding: 100px;
+  border: solid 2px;
+  background-color: lightblue;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+
+}
+.Header {
+  padding: 20px;
+}
+
+.th{
+  background-color: coral;
+}
+
+.Row{
+  width:400px;
+  border: 4px;
+ text-align:center;
+}
+.Person{
+  text-size-adjust: 30px;
+  text-decoration: double;
+  font-weight: 700;
+
+}
+
+.Head{
+  font-style: italic solid;
+  color: darkgoldenrod;
+  
+}
+
+.Image{
+  width: 50px;
+  height: 50px;
+}
