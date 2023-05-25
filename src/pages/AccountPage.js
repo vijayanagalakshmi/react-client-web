@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const account = [{ id:1, accType: "saving", cardNo: "3872914691", balance: "20,000" },
                  { id:2, accType: "checking", cardNo: "7368916784", balance: "12,000" },
                  { id:3, accType: "saving", cardNo: "5465646431", balance: "34,000" },
@@ -8,6 +9,7 @@ const account = [{ id:1, accType: "saving", cardNo: "3872914691", balance: "20,0
 
 
 const AccountPage = () => {
+
 
     return (
         <div>
