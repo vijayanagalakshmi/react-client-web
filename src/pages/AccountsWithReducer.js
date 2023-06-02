@@ -16,9 +16,9 @@ const reducer = (state, action) => {
     }
 }
 
-function AccountsPage() {
+function AccountsWithReducer() {
     
-    const [{ loading, error, customers }, dispatch] = useReducer(reducer, {
+    const [{ loading, error, accounts }, dispatch] = useReducer(reducer, {
         loading: true,
         error: '',
         accounts: []
@@ -36,7 +36,7 @@ function AccountsPage() {
                 dispatch({ type: 'FETCH_FAILED', loading: false, payload: err.message });
             }
         }
-        fetchCustomers();
+        fetchAccounts();
     }, []);
     return (
         <div>
@@ -58,4 +58,4 @@ function AccountsPage() {
             }
     
     
-    export default AccountsPage;
+    export default AccountsWithReducer;

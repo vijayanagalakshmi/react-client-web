@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
-//import accounts from '../utils/data1';
-
-
+import accounts from '../utils/data1';
 
 function AccountPage1() {
     const params = useParams();

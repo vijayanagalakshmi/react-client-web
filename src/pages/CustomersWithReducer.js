@@ -23,7 +23,7 @@ const reducer = (state, action) => {
 }
 
 
-function CustomersPage() {
+function CustomersWithReducer() {
     // const [customers, setCustomers] = useState([]);
     const [{ loading, error, customers }, dispatch] = useReducer(reducer, {
         loading: true,
@@ -66,4 +66,4 @@ function CustomersPage() {
     );
 }
 
-export default CustomersPage;
+export default CustomersWithReducer;

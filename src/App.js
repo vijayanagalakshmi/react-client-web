@@ -5,10 +5,10 @@ import './index.css';
 import { BrowserRouter, Link, Route, Routes  } from 'react-router-dom';
 import HomePage from './pages/HomePage.js';
 //import CustomersPage from './pages/CustomersPage';
-import CustomersPage from './pages/CustomersWithReducer';
+import CustomersWithReducer from './pages/CustomersWithReducer';
 import CustomerPage from './pages/CustomerPage';
-//import AccountPage1 from './pages/AccountPage1';
-import AccountsPage from './pages/AccountsPage';
+import AccountPageWithReducer from './pages/AccountPageWithReducer';
+import AccountsWithReducer from './pages/AccountsWithReducer';
 import LoansPage from './pages/LoansPage';
 import FeedbackPage from './pages/FeedbackPage';
 
@@ -29,10 +29,10 @@ function App() {
           <hr />
           <Routes>
             <Route path='/' element={HomePage} />
-            <Route path='/customers' element={<CustomersPage />} />
+            <Route path='/customers' element={<CustomersWithReducer />} />
             <Route path='/customer/:id' element={<CustomerPage />} />
-            <Route path='/account/:id' element={<AccountPage1/>} />
-            <Route path='/accounts' element={<AccountsPage/>} />
+            <Route path='/account/:id' element={<AccountPageWithReducer/>} />
+            <Route path='/accounts' element={<AccountsWithReducer/>} />
             <Route path='/loans' element={<LoansPage/>} />
             <Route path='/feedback' element={<FeedbackPage/>} />
          

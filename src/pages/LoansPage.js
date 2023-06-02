@@ -23,7 +23,7 @@ return (
             {  
                  loans.map(item => (
                     <div  key={item.id}>
-                        <div>Id:{item.id} </div>
+                        <div>Id   :{item.id} </div>
                         <div> Type:{item.loanType}</div> 
                     </div>
                   
