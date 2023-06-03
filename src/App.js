@@ -6,11 +6,13 @@ import { BrowserRouter, Link, Route, Routes  } from 'react-router-dom';
 import HomePage from './pages/HomePage.js';
 //import CustomersPage from './pages/CustomersPage';
 import CustomersWithReducer from './pages/CustomersWithReducer';
-import CustomerPage from './pages/CustomerPage';
+import CustomerPageWithReducer from './pages/CustomerPageWithReducer';
 import AccountPageWithReducer from './pages/AccountPageWithReducer';
 import AccountsWithReducer from './pages/AccountsWithReducer';
 import LoansPage from './pages/LoansPage';
 import FeedbackPage from './pages/FeedbackPage';
+import Registration from './pages/Registration';
+import 'bootstrap/dist/css/bootstrap.css' 
 
 function App() {
   return (
@@ -24,17 +26,20 @@ function App() {
           <Link to='/accounts' className='Header'>Accounts</Link>
           <Link to='/loans' className='Header'>Loans</Link>
           <Link to='/feedback' className='Header'>Feedback</Link>
+          <Link to='/Registration' className='Header'>Registration</Link>
+          
           
           </div> 
           <hr />
           <Routes>
             <Route path='/' element={HomePage} />
             <Route path='/customers' element={<CustomersWithReducer />} />
-            <Route path='/customer/:id' element={<CustomerPage />} />
+            <Route path='/customer/:id' element={<CustomerPageWithReducer />} />
             <Route path='/account/:id' element={<AccountPageWithReducer/>} />
             <Route path='/accounts' element={<AccountsWithReducer/>} />
             <Route path='/loans' element={<LoansPage/>} />
             <Route path='/feedback' element={<FeedbackPage/>} />
+            <Route path='/Registration' element={<Registration/>} />
          
 
           </Routes> 

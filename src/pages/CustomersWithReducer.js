@@ -35,7 +35,7 @@ function CustomersWithReducer() {
         const fetchCustomers = async function () {
             try {
                 dispatch({ type: 'FETCH_REQUESTED', loading: true });
-                const result = await axios.get('/customers');
+                const result = await axios.get('/api/customers');
                 console.log('result data', result.data);
                 dispatch({ type: 'FETCH_SUCCESS', loading: false, payload: result.data });
             } catch (err) {
@@ -55,8 +55,8 @@ function CustomersWithReducer() {
                         console.log("customer:" ,customer)
                         return(
                            
-                        <li key={customer.id}>
-                            <Link to={`/customer/${customer.id}`}>{customer.cName}</Link>
+                        <li key={customer._id}>
+                            <Link to={`/customer/${customer._id}`}>{customer.cName}</Link>
                         </li>
                     )}
                     )
