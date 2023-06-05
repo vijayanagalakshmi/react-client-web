@@ -33,7 +33,7 @@ function App() {
           <hr />
           <Routes>
             <Route path='/' element={HomePage} />
-            <Route path='/customers' element={<CustomersWithReducer />} />
+            <Route path='/customers' element={<CustomersWithReducer/>} />
             <Route path='/customer/:id' element={<CustomerPageWithReducer />} />
             <Route path='/account/:id' element={<AccountPageWithReducer/>} />
             <Route path='/accounts' element={<AccountsWithReducer/>} />

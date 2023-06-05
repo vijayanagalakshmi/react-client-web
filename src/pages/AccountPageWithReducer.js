@@ -36,7 +36,7 @@ function AccountPageWithReducer() {
         const fetchAccount = async function () {
             try {
                 dispatch({ type: 'ACC_FETCH_REQUEST', loading: true });
-                const result = await axios.get(`/account/id/${id}`);
+                const result = await axios.get(`acc/account/${id}`);
                 console.log('result here', result);
                 dispatch({ type: 'ACC_FETCH_SUCCESS', loading: false, payload: result.data });
             } catch (err) {
@@ -50,18 +50,8 @@ function AccountPageWithReducer() {
     return (
         <div>
 
-            {
-                loading ?
-                    (
-                        <div>Loading... </div>
-                    )
-                    :
-                    error ?
-                        <div>{error}</div>
-                        :
-                        (
-                            <>
-                                <h1 className="th"> {account.name} Account Details</h1>
+            
+                                <h1> {account.name} Account Details</h1>
                                 <h2>Id: {account.id}</h2>
                                 <h2>Nmae: {account.name}</h2>
 
@@ -70,9 +60,9 @@ function AccountPageWithReducer() {
                                     <div>CardNumber: {account.cardNo}</div>
                                     <div>Balance: {account.balance}</div>
                                 </div>
-                            </>
-                        )
-            }
+                           
+                        
+            
         </div>
     )
 }

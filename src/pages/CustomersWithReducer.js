@@ -51,14 +51,14 @@ function CustomersWithReducer() {
             <h1>List of Customers</h1>
             <ul>
                 {
-                    customers.map(customer => {
+                    customers.map(customer =>  {
                         console.log("customer:" ,customer)
-                        return(
+                       return (
                            
                         <li key={customer._id}>
                             <Link to={`/customer/${customer._id}`}>{customer.cName}</Link>
                         </li>
-                    )}
+                    )  }
                     )
                 }
             </ul>

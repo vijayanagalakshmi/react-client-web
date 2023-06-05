@@ -29,13 +29,13 @@ function CustomerPageWithReducer() {
         const fetchCustomer = async function () {
             try {
 
-                dispatch({ type:'CUST_FETCH_REQUEST', loading: true });
-                const result = await axios.get(`/customer/id/${id}`);
+                dispatch({ type: 'CUST_FETCH_REQUEST', loading: true });
+                const result = await axios.get(`/api/customer/${id}`);
                 console.log("result is :", result.data);
-                dispatch({ type:'CUST_FETCH_SUCCESS', loading: false, payload: result.data });
+                dispatch({ type: 'CUST_FETCH_SUCCESS', loading: false, payload: result.data });
             }
             catch (err) {
-                dispatch({ type:'CUST_FETCH_FAIL', loading: false, payload: err.message });
+                dispatch({ type: 'CUST_FETCH_FAIL', loading: false, payload: err.message });
             }
         }
         fetchCustomer();
@@ -44,37 +44,23 @@ function CustomerPageWithReducer() {
     console.log("CP => customer: ", customer);
     return (
         <div>
-            {
-                loading ?
-                    (<div>loading....</div>)
-                    :
-                    error ?
-                        (<div>{error}</div>)
-                        :
-                        (
-                            <>
-                                <h2 className="th">Name: {customer.cName}</h2>
-                                <br />
-                                <div>CellNo: {customer.cellNo}</div>
+            <h2>{customer.cName}</h2>
+            <br />
+            <div>CellNo: {customer.cellNo}</div>
+            <h1>Address</h1>
+            <div> City:{customer.address.city}</div>
+            <div> State:{customer.address.state}</div>
+            <div>Zip:{customer.address.zip}</div>
+            <h1>Account Information</h1>
+            <div>Account Type:{customer.account.type}</div>
+            <div>Account No:{customer.account.accountNo}</div>
+            <div>Balance:{customer.account.balance}</div>
 
-                                <h3 className="Head">Address: </h3>
-                                <div>
-                                    <div><b>City:</b> {customer.address.city}</div>
-                                    <div><b>State:</b> {customer.address.state}</div>
-                                    <div><b>Zipcode: </b>{customer.address.zip}</div>
 
-                                </div>
-                                <h3 className="Head">Account Information: </h3>
-                                <div><b>AccountNo</b>: {customer.account.accountNo}</div>
-                                <div><b>Type</b>: {customer.account.type}</div>
-                                <div><b>Balance</b>:{customer.account.balance}</div>
-
-                            </>
-                        )
-                        }                
-               
         </div>
+
     )
+
 }
 
 export default CustomerPageWithReducer;

@@ -24,7 +24,7 @@ return (
         <h1>List of Customers</h1>
         <ul className='Person'>
             {
-                 
+            
                 customers.map(customer => (
                     <li key={customer.id}>
                         <Link to={`/customer/${customer.id}`}> <img className="Image" src={customer.cImage} alt={customer.cName} /></Link>

@@ -28,7 +28,7 @@ function AccountsWithReducer() {
         const fetchAccounts = async function () {
             try {
                 dispatch({ type: 'FETCH_REQUESTED', loading: true });
-                const result = await axios.get('/accounts');
+                const result = await axios.get('/acc/accounts');
                 console.log('result data', result.data);
                 dispatch({ type: 'FETCH_SUCCESS', loading: false, payload: result.data });
             } catch (err) {
@@ -45,8 +45,8 @@ function AccountsWithReducer() {
                 {
                      
                     accounts.map(account => (
-                        <li key={account.id}>
-                            <Link to={`/account/${account.id}`}>  {account.name}</Link>
+                        <li key={account._id}>
+                            <Link to={`/account/${account._id}`}>  {account.name}</Link>
                     
                         </li>
                     ))
