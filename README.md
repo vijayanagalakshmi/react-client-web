@@ -11,6 +11,13 @@
 
 
 
+Form Registration in React
+---------------------------------
+1. Copy the form from React Bootstrap (http://react-bootstrap.netlify.app/docs/forms/overview)
+2. define a model object.
+3. populate the model with the entered values in the form-fields.
+
+
 
 
 # Getting Started with Create React App
