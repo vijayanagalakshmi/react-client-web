@@ -1,4 +1,4 @@
-const RenderWithLoader = (wrappedComponent) => {
+const RenderWithLoader = (WrappedComponent) => {
     return(props) => {
         const {loading , error} = props;
         console.log("loading in loader:", loading);
@@ -10,7 +10,9 @@ const RenderWithLoader = (wrappedComponent) => {
         error?
         (<div>{error.message}</div>)
         :
-        (<wrappedComponent{...props}/>)
+        (
+            <WrappedComponent {...props}/>
+            )
     )
 }
 }

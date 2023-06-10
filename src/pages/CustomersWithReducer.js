@@ -21,12 +21,14 @@ const reducer = (state, action) => {
         case 'FETCH_FAILED':
             return { ...state, loading: false, error: action.payload };
         default:
-            return state;   
+            return state;
     }
 }
 
 
-function CustomersWithReducer() {
+
+
+ function CustomersWithReducer() {
     // const [customers, setCustomers] = useState([]);
     const [{ loading, error, customers }, dispatch] = useReducer(reducer, {
         loading: true,
@@ -51,12 +53,24 @@ function CustomersWithReducer() {
     }, []);
     console.log("Customers", customers);
 
-    const DeleteCustomer= async (customer)=>{
-        const d = await axios.delete(`/customer/${customer_id}`);
-        console.log('customer deleted',d );
+    // const DeleteCustomer= async ()=>{
+    //     const d = await axios.delete(`/api/customer/${id}`);
+    //     console.log('customer deleted', d);
 
-     }
-
+    //  }
+    const deleteCustomer = ({ customer }) => {
+        const d = async () => {
+            try {
+                // Make a DELETE request to the server's delete endpoint
+                await axios.delete(`/customer/${customer._id}`);
+                console.log('Record deleted successfully!', d);
+    
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
+   
 
     return (
         <div>
@@ -65,16 +79,18 @@ function CustomersWithReducer() {
                 {
                     customers.map(customer => (
                         <div>
-                        <li key={customer._id}>
-                            <Link to={`/customer/${customer._id}`}>{customer.cName}</Link>
-                        </li>
-                        <button onClick={DeleteCustomer}>Delete</button>
-                        <span style={{"padding" : "10px"}}></span>
-                        <button>Update</button>
-                        <div>
-                            Details: <NamedWrapper name={customer.name}/>
-                        </div>
-                        
+                            <li key={customer._id}>
+                                <Link to={`/customer/${customer._id}`}>{customer.cName}</Link>
+                            </li>
+                            <button onClick={deleteCustomer({ customer })}>Delete</button>
+
+                            <span style={{ "padding": "10px" }}></span>
+
+                            <button>Update</button>
+                            <div>
+                                Details: <NamedWrapper name={customer.cName} />
+                            </div>
+
                         </div>
                     ))
                 }
@@ -83,10 +99,10 @@ function CustomersWithReducer() {
     );
 }
 
-export default CustomersWithReducer;
+export default  CustomersWithReducer;
 
 
-    
+
 
 
 

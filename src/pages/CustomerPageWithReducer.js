@@ -60,7 +60,11 @@ function CustomerPageWithReducer() {
     // const customer = customers[id];
     console.log("CP => customer: ", customer);
     return (
-        <h1>customer name : {customer.cName}</h1>
+        <div>
+        <h1>customer name : {customer.cName} </h1>
+        <h2>email:{customer.email}</h2>
+        <h3>cellNo:{customer.cellNo}</h3>
+        </div>
         
         // <div>
 
@@ -91,7 +95,7 @@ function CustomerPageWithReducer() {
         //                     </>
         //                 )
         //     }
-        // </div>
+        //  </div>
     )
 }
 
@@ -104,11 +108,11 @@ export default CustomerPageWithReducer;
 
 
 
-/*import { useParams } from "react-router-dom";
+ /*import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useReducer, useEffect } from "react";
-//import RenderWithLoader from "./RenderWithLoader";
-//import DisplayCustomer from "./DisplayCustomer";
+import RenderWithLoader from "./RenderWithLoader";
+import DisplayCustomer from "./DisplayCustomer";
 
 // import customers from '../utils/data'
 
@@ -131,7 +135,7 @@ const reducer = (state, action) => {
     }
 }
 
-//const WithLoader = RenderWithLoader(DisplayCustomer);
+const WithLoader = RenderWithLoader(DisplayCustomer);
 function CustomerPageWithReducer() {
     const params = useParams();
 
@@ -168,38 +172,38 @@ function CustomerPageWithReducer() {
     // const customer = customers[id];
     console.log("CP => customer: ", customer);
     return (
-       // <WithLoader loading = {loading} error = {error} customer = {customer} />
-        <div>
+        <WithLoader loading = {loading} error = {error} customer = {customer} />
+        // <div>
 
-            {
-                loading ?
-                    (
-                        <div>Loading... </div>
-                    )
-                    :
-                    error ?
-                        <div>{error}</div>
-                        :
-                        (
-                            <>
-                                <h1>Customer  Details</h1>
-                                <h2>Name:{customer.cName}</h2>
-                                <h2>Cell no:{customer.cellNo}</h2>
+        //     {
+        //         loading ?
+        //             (
+        //                 <div>Loading... </div>
+        //             )
+        //             :
+        //             error ?
+        //                 <div>{error}</div>
+        //                 :
+        //                 (
+        //                     <>
+        //                         <h1>Customer  Details</h1>
+        //                         <h2>Name:{customer.cName}</h2>
+        //                         <h2>Cell no:{customer.cellNo}</h2>
                                 
-                                <h3>Address: </h3>
-                                 <div>
-                                <div><i>City :</i> {customer.address.city}</div>
-                                     <div><i>State:</i> {customer.address.state}</div>
-                                    <div>Zip: {customer.address.zip}</div>
-                                 </div>
-                                 <h3>Account Information: </h3>
-                                <div><b>AccountNo</b>: {customer.account.accountNo}</div>
-                                 <div><b>Type</b>: {customer.account.type}</div>
-                                 <div><b>Balance </b>: {customer.account.balance}</div>
-                            </>
-                        )
-            }
-         </div>
+        //                         <h3>Address: </h3>
+        //                          <div>
+        //                         <div><i>City :</i> {customer.address.city}</div>
+        //                              <div><i>State:</i> {customer.address.state}</div>
+        //                             <div>Zip: {customer.address.zip}</div>
+        //                          </div>
+        //                          <h3>Account Information: </h3>
+        //                         <div><b>AccountNo</b>: {customer.account.accountNo}</div>
+        //                          <div><b>Type</b>: {customer.account.type}</div>
+        //                          <div><b>Balance </b>: {customer.account.balance}</div>
+        //                     </>
+        //                 )
+        //     }
+        // </div>
     )
 }
 
