@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useReducer, useEffect } from "react";
+import RenderWithLoader from "./RenderWithLoader";
+import DisplayCustomer from "./DisplayCustomer";
+
+
 // import customers from '../utils/data'
 
 //1. import axios
@@ -22,6 +26,7 @@ const reducer = (state, action) => {
     }
 }
 
+const WithLoader = RenderWithLoader(DisplayCustomer);
 
 function CustomerPage() {
     const params = useParams();
@@ -55,37 +60,38 @@ function CustomerPage() {
     // const customer = customers[id];
     console.log("CP => customer: ", customer);
     return (
-        <div>
+        <WithLoader loading = {loading} error = {error} customer = {customer} />
+    //     <div>
 
-            {
-                loading ?
-                    (
-                        <div>Loading... </div>
-                    )
-                    :
-                    error ?
-                        <div>{error}</div>
-                        :
-                        (
-                            <>
-                                <h1 className="th">Customer {customer.cName} Details</h1>
-                                <h2>{customer.cellNo}</h2>
+    //         {
+    //             loading ?
+    //                 (
+    //                     <div>Loading... </div>
+    //                 )
+    //                 :
+    //                 error ?
+    //                     <div>{error}</div>
+    //                     :
+    //                     (
+    //                         <>
+    //                             <h1 className="th">Customer {customer.cName} Details</h1>
+    //                             <h2>{customer.cellNo}</h2>
 
-                                <h3>Address: </h3>
-                                <div>
-                                    <div>City: {customer.address.city}</div>
-                                    <div>State: {customer.address.state}</div>
-                                    <div>Zip: {customer.address.zip}</div>
-                                </div>
-                                <h3>Account Information: </h3>
-                                <div><b>Type</b>: {customer.account.type}</div>
-                                <div><b>AccountNo</b>: {customer.account.accountNo}</div>
-                                <div><b>balance</b>: {customer.account.balance}</div>
+    //                             <h3>Address: </h3>
+    //                             <div>
+    //                                 <div>City: {customer.address.city}</div>
+    //                                 <div>State: {customer.address.state}</div>
+    //                                 <div>Zip: {customer.address.zip}</div>
+    //                             </div>
+    //                             <h3>Account Information: </h3>
+    //                             <div><b>Type</b>: {customer.account.type}</div>
+    //                             <div><b>AccountNo</b>: {customer.account.accountNo}</div>
+    //                             <div><b>balance</b>: {customer.account.balance}</div>
                                 
-                            </>
-                        )
-            }
-        </div>
+    //                         </>
+    //                     )
+    //         }
+    //     </div>
     )
 }
 

@@ -17,6 +17,17 @@ Form Registration in React
 2. define a model object.
 3. populate the model with the entered values in the form-fields.
 
+ 
+             HOC(higher order component)
+   ## Wrapper-component
+
+   1. Accept the wrapped-component as parameter.
+   2. send the props as param to the retruning-new-component to pass it on to the child-component
+   3. remove common code from customer-page and place it in the wrapper-component.
+
+   4. create DisplayCustomer component and add the customer jsx in it.
+   5. destructure the customer from props to share the values.
+
 
 
 

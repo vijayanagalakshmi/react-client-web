@@ -1,7 +1,10 @@
 const User = {
-    name :' ',
+    cName :' ',
     email : '',
     password : '',
-    isActiveUser : false
+    isActiveUser : false,
+    cellNo:'',
+    
+
 };
 export default User;
