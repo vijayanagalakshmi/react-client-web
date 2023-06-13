@@ -40,7 +40,7 @@ function App() {
             <Route path='/loans' element={<LoansPage/>} />
             <Route path='/feedback' element={<FeedbackPage/>} />
             <Route path='/Registration' element={<Registration/>} />
-         
+            <Route path='/customer/edit/:id' element={<Registration/>} />
 
           </Routes> 
           </header>

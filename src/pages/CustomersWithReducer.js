@@ -1,15 +1,10 @@
-
-import React, { useEffect, useReducer } from 'react'
-
+import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap'
 import NameWrapper from '../utils/NameWrapper';
 import NameComponent from './NameComponent'
-
-// action.types
-// 1. FETCH_REQUESTED
-// 2. FETCH_SUCCESS
-// 3. FETCH_FAILED
+import Button from 'react-bootstrap/esm/Button';
 
 const NamedWrapper = NameWrapper(NameComponent);
 const reducer = (state, action) => {
@@ -24,11 +19,7 @@ const reducer = (state, action) => {
             return state;
     }
 }
-
-
-
-
- function CustomersWithReducer() {
+function CustomersWithReducer() {
     // const [customers, setCustomers] = useState([]);
     const [{ loading, error, customers }, dispatch] = useReducer(reducer, {
         loading: true,
@@ -50,56 +41,64 @@ const reducer = (state, action) => {
             }
         }
         fetchCustomers();
-    }, []);
+    }, [customers]);
+
     console.log("Customers", customers);
 
-    // const DeleteCustomer= async ()=>{
-    //     const d = await axios.delete(`/api/customer/${id}`);
-    //     console.log('customer deleted', d);
+    const deleteCustomer = async (id) => {
+    try {
+            console.log('deleting record id!', id);
+            // Make a DELETE request to the server's delete endpoint
+            const d = await axios.delete(`/api/customer/${id}`);
+            console.log('Record deleted successfully!', d);
 
-    //  }
-    const deleteCustomer = ({ customer }) => {
-        const d = async () => {
-            try {
-                // Make a DELETE request to the server's delete endpoint
-                await axios.delete(`/customer/${customer._id}`);
-                console.log('Record deleted successfully!', d);
-    
-            } catch (error) {
-                console.error(error);
-            }
+        } catch (error) {
+            console.error(error);
         }
     }
-   
 
     return (
         <div>
             <h1>List of Customers</h1>
             <ul>
                 {
-                    customers.map(customer => (
-                        <div>
-                            <li key={customer._id}>
-                                <Link to={`/customer/${customer._id}`}>{customer.cName}</Link>
-                            </li>
-                            <button onClick={deleteCustomer({ customer })}>Delete</button>
-
-                            <span style={{ "padding": "10px" }}></span>
-
-                            <button>Update</button>
-                            <div>
-                                Details: <NamedWrapper name={customer.cName} />
-                            </div>
-
-                        </div>
-                    ))
+                    customers.map(customer => {
+                        return (
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <li key={customer._id}>
+                                            <Link to={`/customer/${customer._id}`} className='link-decoration'>{customer.cName}</Link>
+                                        </li>
+                                    </Col>
+                                    <Col>
+                                        <div>
+                                            Details:
+                                            <NamedWrapper name={customer.cName} />
+                                        </div>
+                                    </Col>
+                                    <Col>
+                                        <Link to={`/customer/edit/${customer._id}`} className="btn btn-outline-primary btn-sm link-decoration" >Edit</Link>
+                                    </Col>
+                                    <Col>
+                                        <Button variant="basic" type="button" className="btn btn-outline-dark btn-sm" onClick={e => deleteCustomer(customer._id)}>
+                                            <span className="glyphicon glyphicon-trash"></span> Delete
+                                        </Button>
+                                    </Col>
+                                    <Col md={6}>
+                                    </Col>
+                                </Row>
+                            </Container>
+                                            
+                        )
+                    })
                 }
-            </ul>
+                    </ul>
         </div>
     );
 }
 
-export default  CustomersWithReducer;
+export default CustomersWithReducer;
 
 
 
