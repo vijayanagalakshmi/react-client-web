@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap';
 import NameWrapper from '../utils/NameWrapper';
 import NameComponent from './NameComponent'
 import Button from 'react-bootstrap/esm/Button';

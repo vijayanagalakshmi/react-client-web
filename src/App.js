@@ -24,9 +24,10 @@ function App() {
           <Link to='/' className='Header'>Home</Link>
           <Link to='/customers' className='Header'>Customers</Link> 
           <Link to='/accounts' className='Header'>Accounts</Link>
+          <Link to='/Registration' className='Header'>Registration</Link>
           <Link to='/loans' className='Header'>Loans</Link>
           <Link to='/feedback' className='Header'>Feedback</Link>
-          <Link to='/Registration' className='Header'>Registration</Link>
+          
           
           
           </div> 

@@ -88,12 +88,13 @@ function Registration() {
     console.log('editCustomer => Customer: ', customer);
 
     await axios.put(`/api/customer/${customer._id}`, {
-      name: customer.cName,
+      cName: customer.cName,
       email: customer.email,
       password: customer.password,
+      cellNo: customer.cellNo,
       isActiveUser: customer.isActiveUser
     }).then((response) => {
-      console.log(response);
+      console.log('the new updated data',response);
     }).catch((error) => {
       console.log(error);
     });
@@ -104,9 +105,10 @@ const submitHandler = async (e) => {
   e.preventDefault();
   console.log('submitHandler=> User:', User);
   await axios.post('/api/customer/create', {
-    name: customer.cName,
+    cName: customer.cName,
     email: customer.email,
     password: customer.password,
+    cellNo: customer.cellNo,
     isActiveUser: customer.isActiveUser
   }).then((response) => {
     console.log(response);
@@ -119,32 +121,31 @@ return (
   <div>
     <Heading name='Registraion' />
     <Form onSubmit={submitHandler}>
-      <h1>Register Your details:</h1>
       <Form.Group className="mb-3" controlId="cName" >
         <Form.Label>Customer Name</Form.Label>
-        <Form.Control type="text" defaultValue={customer.cName} placeholder="Enter Name" onBlur={e => User.cName = e.target.value} />
+        <Form.Control type="text" defaultValue={customer.cName} placeholder="Enter Name" onBlur={e => customer.cName = e.target.value} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="Email">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" defaultValue={customer.email} placeholder="Enter email" onBlur={e => User.email = e.target.value} />
+        <Form.Control type="email" defaultValue={customer.email} placeholder="Enter email" onBlur={e => customer.email = e.target.value} />
       </Form.Group>
 
 
       <Form.Group className="mb-3" controlId="Password">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" defaultValue={customer.password} placeholder="Password" onBlur={e => User.password = e.target.value} />
+        <Form.Control type="password" defaultValue={customer.password} placeholder="Password" onBlur={e => customer.password = e.target.value} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="cellNo">
         <Form.Label>cell</Form.Label>
-        <Form.Control type="number" defaultValue={customer.cellNo} placeholder="cellNo" onBlur={e => User.cellNo = e.target.value} />
+        <Form.Control type="number" defaultValue={customer.cellNo} placeholder="cellNo" onBlur={e => customer.cellNo = e.target.value} />
       </Form.Group>
 
 
 
       <Form.Group className="mb-3" controlId="ActiveUser">
-        <Form.Check type="checkbox" label="Active User" onBlur={e => User.isActiveUser = !User.isActiveUser} />
+        <Form.Check type="checkbox" label="Active User" onBlur={e => customer.isActiveUser = !customer.isActiveUser} />
       </Form.Group>
       {
         customer.cName ?
@@ -167,29 +168,3 @@ return (
     export default Registration;
 
 
-
-
-
-
-
-
-
-/*const Registration = () => (
-    <form>
-
-        <div class="input-group mb-3">
-            
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-        </div>
-        <div class="input-group mb-3">
-            
-            <input type="password" class="form-control" placeholder="enter your password" aria-label="Password" aria-describedby="basic-addon1" />
-        </div>
-        <div class="input-group mb-3">
-            
-            <input type="text" class="form-control" placeholder="city name" aria-label="Password" aria-describedby="basic-addon1" />
-        </div>
-    </form>
-)
-
-export default Registration;*/
