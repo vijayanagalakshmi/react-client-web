@@ -29,6 +29,18 @@ Form Registration in React
    5. destructure the customer from props to share the values.
 
 
+   . React-Redux
+   ---------------------
+   1. install redux react-redux redux-thunk
+   2. create store.js with reducers and export store
+   3. update index.js with Provider that shares the store
+   4. write the actions in xyzAction.js and call this using dispatch
+   5. use below hooks from react-redux
+      1. useDispatcher() to dispactch
+      2. useSelector( with-arrow-function ), that retuns the state
+   6. extract list from the state above.
+
+
 
 
 # Getting Started with Create React App
