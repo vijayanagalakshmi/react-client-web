@@ -5,7 +5,8 @@ import './index.css';
 import { BrowserRouter, Link, Route, Routes  } from 'react-router-dom';
 import HomePage from './pages/HomePage.js';
 //import CustomersPage from './pages/CustomersPage';
-import CustomersWithReducer from './pages/CustomersWithReducer';
+import CustomersWithRedux from './pages/CustomersWithRedux';
+//import CustomersWithReducer from './pages/CustomersWithReducer';
 import CustomerPageWithReducer from './pages/CustomerPageWithReducer';
 import AccountPageWithReducer from './pages/AccountPageWithReducer';
 import AccountsWithReducer from './pages/AccountsWithReducer';
@@ -34,7 +35,8 @@ function App() {
           <hr />
           <Routes>
             <Route path='/' element={HomePage} />
-            <Route path='/customers' element={<CustomersWithReducer/>} />
+            {/* <Route path='/customers' element={<CustomersWithReducer/>} /> */}
+            <Route path='/customers' element={<CustomersWithRedux/>} />
             <Route path='/customer/:id' element={<CustomerPageWithReducer />} />
             <Route path='/account/:id' element={<AccountPageWithReducer/>} />
             <Route path='/accounts' element={<AccountsWithReducer/>} />
